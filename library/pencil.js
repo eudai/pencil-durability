@@ -7,6 +7,9 @@ var Pencil = function(options){
 		for (var i in text){
 			var character = text[i]
 			paper.text += character
+			if (character === ' '){
+				continue
+			}
 			this.durability --
 		}
 	}
