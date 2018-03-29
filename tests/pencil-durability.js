@@ -35,6 +35,19 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Writing spaces does not expend durability.'] = function(){
+		var startingDurability = 5
+		var pencil = new Pencil({
+			durability: startingDurability
+		})
+		var paper = new Paper
+		var text = ' '
+		pencil.write(paper,text)
+		var expected = startingDurability
+		var actual = pencil.durability
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests
