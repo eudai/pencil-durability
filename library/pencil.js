@@ -1,7 +1,14 @@
-var Pencil = function(){
+var Pencil = function(options){
+
+	options = options || {}
+	this.durability = options.durability || 0
 
 	this.write = function(paper,text){
-		paper.text += text
+		for (var i in text){
+			var character = text[i]
+			paper.text += character
+			this.durability --
+		}
 	}
 
 }
