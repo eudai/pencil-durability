@@ -4,6 +4,7 @@ var Pencil = function(options){
 		durability: 40000
 	}
 	this.durability = options.durability
+	this.initialDurability = options.durability
 
 	this.write = function(paper,text){
 		for (var i in text){
@@ -26,7 +27,7 @@ var Pencil = function(options){
 	}
 
 	this.sharpen = function(){
-		
+		this.durability = this.initialDurability
 	}
 
 }
