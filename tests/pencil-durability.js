@@ -83,7 +83,7 @@ var PencilDurabilityTests = function(){
 		var paper = new Paper
 		var text = 'a'
 		pencil.write(paper,text)
-		var expected = startingDurability - text.length
+		var expected = startingDurability - (text.length * 1)
 		var actual = pencil.durability
 		return actual == expected
 	}
