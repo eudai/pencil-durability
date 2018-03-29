@@ -192,6 +192,21 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Text can be inserted into an existing string at a defined point.'] = function(){
+		var pencil = new Pencil({
+			durability: 40000,
+			length: 5,
+			eraserDurability: 3
+		})
+		var paper = new Paper
+		var text = 'Hello,      .'
+		pencil.write(paper,text)
+		pencil.insert(paper,'world',7)
+		var expected = 'Hello, world.'
+		var actual = paper.text
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests

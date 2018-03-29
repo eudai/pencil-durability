@@ -57,6 +57,10 @@ var Pencil = function(options){
 		paper.text = leftString + unreversedString + rightString
 	}
 
+	this.insert = function(){
+		
+	}
+
 	function reverseString(string){
 		return string.split('').reverse().join('')
 	}
