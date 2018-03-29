@@ -144,6 +144,17 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Erasing text will replace the last occurance of that text with spaces.'] = function(){
+		var pencil = new Pencil
+		var paper = new Paper
+		var text = 'Hello, world.'
+		pencil.write(paper,text)
+		pencil.erase('Hello')
+		var expected = '     , world.'
+		var actual = paper.text
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests

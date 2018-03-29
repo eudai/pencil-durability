@@ -34,6 +34,10 @@ var Pencil = function(options){
 		this.length --
 	}
 
+	this.erase = function(){
+		
+	}
+
 }
 
 module.exports = Pencil
