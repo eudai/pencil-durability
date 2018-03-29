@@ -10,6 +10,12 @@ var Pencil = function(options){
 			var character = text[i]
 			if (this.durability >= 1){
 				paper.text += character
+				var isUpperCase = character.toUpperCase() === character
+				if (isUpperCase){
+					this.durability -= 2
+				} else {
+					this.durability -= 1
+				}
 			} else {
 				paper.text += ' '
 				continue
@@ -20,7 +26,6 @@ var Pencil = function(options){
 			if (character === '\n'){
 				continue
 			}
-			this.durability --
 		}
 	}
 
