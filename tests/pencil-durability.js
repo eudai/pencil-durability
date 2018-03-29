@@ -147,11 +147,14 @@ var PencilDurabilityTests = function(){
 	this['Erasing text will replace the last occurance of that text with spaces.'] = function(){
 		var pencil = new Pencil
 		var paper = new Paper
-		var text = 'Hello, world.'
+		var text = 'How much wood could a wood chuck chuck?'
 		pencil.write(paper,text)
-		pencil.erase('Hello')
-		var expected = '     , world.'
+		pencil.erase(paper,'chuck')
+		var expected = 'How much wood could a wood chuck      ?'
 		var actual = paper.text
+		console.log('expected:',expected)
+		console.log('actual:',actual)
+		console.log(expected,actual)
 		return actual == expected
 	}
 

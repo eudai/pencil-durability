@@ -34,8 +34,18 @@ var Pencil = function(options){
 		this.length --
 	}
 
-	this.erase = function(){
-		
+	this.erase = function(paper,text){
+		var startingIndex = paper.text.lastIndexOf(text)
+		var endingIndex = startingIndex + text.length
+		var originalText = paper.text
+		var leftString = originalText.substring(0,startingIndex)
+		var stringToReplace = originalText.substring(startingIndex,endingIndex)
+		var replacementString = ''
+		for (var i in stringToReplace){
+			replacementString += ' '
+		}	
+		var rightString = originalText.substring(endingIndex)
+		paper.text = leftString + replacementString + rightString
 	}
 
 }
