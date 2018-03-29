@@ -114,6 +114,20 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Sharpening a pencil reduces its length.'] = function(){
+		var startingLength = 5
+		var pencil = new Pencil({
+			length: startingLength
+		})
+		var paper = new Paper
+		var text = 'A'
+		pencil.write(paper,text)
+		pencil.sharpen()
+		var expected = startingLength - 1
+		var actual = pencil.length
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests
