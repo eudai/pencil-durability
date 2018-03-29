@@ -6,8 +6,8 @@ var PencilDurabilityTests = function(){
 	this['When the pencil writes, the paper reflects the text.'] = function(){
 		var pencil = new Pencil
 		var paper = new Paper
-		pencil.write(paper,'Some example text.')
-		var expected = 'Some example text.'
+		pencil.write(paper,'Text.')
+		var expected = 'Text.'
 		var actual = paper.text
 		return actual == expected
 	}
@@ -35,7 +35,7 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
-	this['Writing spaces does not expend durability.'] = function(){
+	this['Writing spaces does not reduce durability.'] = function(){
 		var startingDurability = 5
 		var pencil = new Pencil({
 			durability: startingDurability
@@ -48,7 +48,7 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
-	this['Writing new lines does not expend durability.'] = function(){
+	this['Writing new lines does not reduce durability.'] = function(){
 		var startingDurability = 5
 		var pencil = new Pencil({
 			durability: startingDurability
