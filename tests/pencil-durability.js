@@ -22,6 +22,19 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Writing text reduces the durability of the pencil.'] = function(){
+		var startingDurability = 5
+		var pencil = new Pencil({
+			durability: startingDurability
+		})
+		var paper = new Paper
+		var text = '123'
+		pencil.write(paper,text)
+		var expected = startingDurability - text.length
+		var actual = pencil.durability
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests
