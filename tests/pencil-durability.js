@@ -9,7 +9,6 @@ var PencilDurabilityTests = function(){
 		pencil.write(paper,'Some example text.')
 		var expected = 'Some example text.'
 		var actual = paper.text
-		debugger
 		return actual == expected
 	}
 
@@ -83,7 +82,20 @@ var PencilDurabilityTests = function(){
 		var paper = new Paper
 		var text = 'a'
 		pencil.write(paper,text)
-		var expected = startingDurability - (text.length * 1)
+		var expected = startingDurability - 1
+		var actual = pencil.durability
+		return actual == expected
+	}
+
+	this['Upper case letters expend 2 durability.'] = function(){
+		var startingDurability = 5
+		var pencil = new Pencil({
+			durability: startingDurability
+		})
+		var paper = new Paper
+		var text = 'A'
+		pencil.write(paper,text)
+		var expected = startingDurability - 2
 		var actual = pencil.durability
 		return actual == expected
 	}
