@@ -207,6 +207,21 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Inserted text that overlaps existing text will create a "@" symbol.'] = function(){
+		var pencil = new Pencil({
+			durability: 40000,
+			length: 5,
+			eraserDurability: 3
+		})
+		var paper = new Paper
+		var text = 'Hello, w r d.'
+		pencil.write(paper,text)
+		pencil.insert(paper,'world',7)
+		var expected = 'Hello, @o@l@.'
+		var actual = paper.text
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests
