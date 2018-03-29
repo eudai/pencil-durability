@@ -64,7 +64,13 @@ var Pencil = function(options){
 			var index = parseInt(i)
 			if (index >= startingIndex && index <= endingIndex){
 				var textIndex = index - startingIndex
-				outputString += text[textIndex]
+				var existingCharacter = paper.text[i]
+				if (existingCharacter !== ' '){
+					outputString += '@'
+				} else {
+					outputString += text[textIndex]
+				}
+				
 			} else {
 				outputString += paper.text[i]
 			}
