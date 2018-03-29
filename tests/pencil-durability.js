@@ -9,6 +9,7 @@ var PencilDurabilityTests = function(){
 		pencil.write(paper,'Some example text.')
 		var expected = 'Some example text.'
 		var actual = paper.text
+		debugger
 		return actual == expected
 	}
 
