@@ -128,17 +128,19 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
-	this['Sharpening a pencil with a length of 0 will not reduce its durability.'] = function(){
+	this['Sharpening a pencil with a length of 0 will not restore its durability.'] = function(){
 		var startingLength = 0
+		var startingDurability = 5
 		var pencil = new Pencil({
-			length: startingLength
+			length: startingLength,
+			durability: startingDurability
 		})
 		var paper = new Paper
 		var text = 'A'
 		pencil.write(paper,text)
 		pencil.sharpen()
-		var expected = startingLength - 1
-		var actual = pencil.length
+		var expected = 4
+		var actual = pencil.durability
 		return actual == expected
 	}
 
