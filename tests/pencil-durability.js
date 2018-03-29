@@ -117,6 +117,7 @@ var PencilDurabilityTests = function(){
 	this['Sharpening a pencil will reduce its length by 1.'] = function(){
 		var startingLength = 5
 		var pencil = new Pencil({
+			durability: 40000,
 			length: startingLength
 		})
 		var paper = new Paper
@@ -129,11 +130,12 @@ var PencilDurabilityTests = function(){
 	}
 
 	this['Sharpening a pencil with a length of 0 will not restore its durability.'] = function(){
+		var startingDurability = 5	
 		var startingLength = 0
-		var startingDurability = 5
 		var pencil = new Pencil({
+			durability: startingDurability,
 			length: startingLength,
-			durability: startingDurability
+			
 		})
 		var paper = new Paper
 		var text = 'A'
@@ -145,7 +147,11 @@ var PencilDurabilityTests = function(){
 	}
 
 	this['Erasing text will replace the last occurance of that text with spaces.'] = function(){
-		var pencil = new Pencil
+		var pencil = new Pencil({
+			durability: 40000,
+			length: 5,
+			eraserDurability: 10
+		})
 		var paper = new Paper
 		var text = 'How much wood could a wood chuck chuck?'
 		pencil.write(paper,text)
@@ -158,6 +164,8 @@ var PencilDurabilityTests = function(){
 	this['Erasing text will reduce the eraser durability by 1.'] = function(){
 		var startingEraserDurability = 10
 		var pencil = new Pencil({
+			durability: 40000,
+			length: 5,
 			eraserDurability: startingEraserDurability
 		})
 		var paper = new Paper

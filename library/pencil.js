@@ -2,11 +2,13 @@ var Pencil = function(options){
 
 	options = options || {
 		durability: 40000,
-		length: 5
+		length: 5,
+		eraserDurability: 10
 	}
 	this.durability = options.durability
 	this.initialDurability = options.durability
 	this.length = options.length
+	this.eraserDurability = options.eraserDurability
 
 	this.write = function(paper,text){
 		for (var i in text){
@@ -41,8 +43,11 @@ var Pencil = function(options){
 		var leftString = originalText.substring(0,startingIndex)
 		var stringToReplace = originalText.substring(startingIndex,endingIndex)
 		var replacementString = ''
+		console.log(stringToReplace)
 		for (var i in stringToReplace){
+			console.log(stringToReplace[i],i)
 			replacementString += ' '
+			this.eraserDurability --
 		}	
 		var rightString = originalText.substring(endingIndex)
 		paper.text = leftString + replacementString + rightString
