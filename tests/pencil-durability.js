@@ -179,9 +179,9 @@ var PencilDurabilityTests = function(){
 
 	this['Once the eraser is warn out, it will no longer erase.'] = function(){
 		var pencil = new Pencil({
-			durability: 3,
+			durability: 40000,
 			length: 5,
-			eraserDurability: 10
+			eraserDurability: 3
 		})
 		var paper = new Paper
 		var text = 'How much wood could a wood chuck chuck?'

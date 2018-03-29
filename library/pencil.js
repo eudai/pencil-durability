@@ -43,14 +43,22 @@ var Pencil = function(options){
 		var leftString = originalText.substring(0,startingIndex)
 		var stringToReplace = originalText.substring(startingIndex,endingIndex)
 		var replacementString = ''
-		console.log(stringToReplace)
-		for (var i in stringToReplace){
-			console.log(stringToReplace[i],i)
-			replacementString += ' '
-			this.eraserDurability --
-		}	
+		var reversedString = reverseString(stringToReplace)
+		for (var i in reversedString){
+			if (this.eraserDurability > 0){
+				replacementString += ' '
+				this.eraserDurability --
+			} else {
+				replacementString += reversedString[i]
+			}
+		}
+		var unreversedString = reverseString(replacementString)
 		var rightString = originalText.substring(endingIndex)
-		paper.text = leftString + replacementString + rightString
+		paper.text = leftString + unreversedString + rightString
+	}
+
+	function reverseString(string){
+		return string.split('').reverse().join('')
 	}
 
 }
