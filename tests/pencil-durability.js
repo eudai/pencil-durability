@@ -139,8 +139,9 @@ var PencilDurabilityTests = function(){
 		var text = 'A'
 		pencil.write(paper,text)
 		pencil.sharpen()
-		var expected = 4
+		var expected = 3
 		var actual = pencil.durability
+		debugger
 		return actual == expected
 	}
 

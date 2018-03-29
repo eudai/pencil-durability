@@ -29,6 +29,7 @@ var Pencil = function(options){
 	}
 
 	this.sharpen = function(){
+		if (this.length == 0) return
 		this.durability = this.initialDurability
 		this.length --
 	}
