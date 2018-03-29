@@ -177,6 +177,21 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Once the eraser is warn out, it will no longer erase.'] = function(){
+		var pencil = new Pencil({
+			durability: 3,
+			length: 5,
+			eraserDurability: 10
+		})
+		var paper = new Paper
+		var text = 'How much wood could a wood chuck chuck?'
+		pencil.write(paper,text)
+		pencil.erase(paper,'chuck')
+		var expected = 'How much wood could a wood chuck ch   ?'
+		var actual = paper.text
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests
