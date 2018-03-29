@@ -10,6 +10,9 @@ var Pencil = function(options){
 			if (character === ' '){
 				continue
 			}
+			if (character === '\n'){
+				continue
+			}
 			this.durability --
 		}
 	}
