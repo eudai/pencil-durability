@@ -25,6 +25,10 @@ var Pencil = function(options){
 		}
 	}
 
+	this.sharpen = function(){
+		
+	}
+
 }
 
 module.exports = Pencil
