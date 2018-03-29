@@ -48,6 +48,19 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Writing new lines does not expend durability.'] = function(){
+		var startingDurability = 5
+		var pencil = new Pencil({
+			durability: startingDurability
+		})
+		var paper = new Paper
+		var text = '\n'
+		pencil.write(paper,text)
+		var expected = startingDurability
+		var actual = pencil.durability
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests
