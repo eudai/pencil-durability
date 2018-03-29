@@ -152,9 +152,20 @@ var PencilDurabilityTests = function(){
 		pencil.erase(paper,'chuck')
 		var expected = 'How much wood could a wood chuck      ?'
 		var actual = paper.text
-		console.log('expected:',expected)
-		console.log('actual:',actual)
-		console.log(expected,actual)
+		return actual == expected
+	}
+
+	this['Erasing text will reduce the eraser durability by 1.'] = function(){
+		var startingEraserDurability = 10
+		var pencil = new Pencil({
+			eraserDurability: startingEraserDurability
+		})
+		var paper = new Paper
+		var text = 'How much wood could a wood chuck chuck?'
+		pencil.write(paper,text)
+		pencil.erase(paper,'chuck')
+		var expected = startingEraserDurability - 5
+		var actual = pencil.eraserDurability
 		return actual == expected
 	}
 
