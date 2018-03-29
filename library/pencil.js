@@ -57,8 +57,23 @@ var Pencil = function(options){
 		paper.text = leftString + unreversedString + rightString
 	}
 
-	this.insert = function(){
-		
+	this.insert = function(paper,text,startingIndex){
+		var outputString = ''
+		var endingIndex = startingIndex + text.length - 1
+		for (var i in paper.text){
+			var index = parseInt(i)
+			if (index >= startingIndex && index <= endingIndex){
+				var textIndex = index - startingIndex
+				outputString += text[textIndex]
+			} else {
+				outputString += paper.text[i]
+			}
+		}
+		for (var i = 0; i < text.length; i++){
+			var index = i + startingIndex
+			var existingCharacter = paper.text[index]
+		}
+		paper.text = outputString
 	}
 
 	function reverseString(string){
