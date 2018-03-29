@@ -61,6 +61,19 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['A dull pencil will only write spaces.'] = function(){
+		var startingDurability = 0
+		var pencil = new Pencil({
+			durability: startingDurability
+		})
+		var paper = new Paper
+		var text = 'Hello.'
+		pencil.write(paper,text)
+		var expected = '      '
+		var actual = paper.text
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests
