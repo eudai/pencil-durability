@@ -1,7 +1,7 @@
 var Pencil = function(){
 
-	this.write = function(){
-		
+	this.write = function(paper,text){
+		paper.text += text
 	}
 
 }
