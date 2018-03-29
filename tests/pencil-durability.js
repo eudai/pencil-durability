@@ -75,6 +75,19 @@ var PencilDurabilityTests = function(){
 		return actual == expected
 	}
 
+	this['Lower case letters expend 1 durability.'] = function(){
+		var startingDurability = 5
+		var pencil = new Pencil({
+			durability: startingDurability
+		})
+		var paper = new Paper
+		var text = 'a'
+		pencil.write(paper,text)
+		var expected = startingDurability - text.length
+		var actual = pencil.durability
+		return actual == expected
+	}
+
 }
 
 module.exports = PencilDurabilityTests
